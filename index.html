@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Live Thermal Camera Viewer</title>
+    <meta name="description" content="A real-time thermal camera viewer simulating heatmap colors directly in the browser via your device camera.">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <h1>Live Thermal Camera Viewer</h1>
+        
+        <div class="video-container">
+            <!-- Hidden video element to capture camera stream -->
+            <video id="videoElement" autoplay playsinline style="display: none;"></video>
+            <!-- Canvas to display the processed frames -->
+            <canvas id="canvasOutput"></canvas>
+            <div id="loadingMessage">Loading OpenCV.js and Camera...</div>
+        </div>
+
+        <div class="controls">
+            <button id="btnNormal" class="view-btn">Normal View</button>
+            <button id="btnThermal" class="view-btn active">Thermal View</button>
+        </div>
+    </div>
+
+    <!-- Load OpenCV.js asynchronously -->
+    <script async src="https://docs.opencv.org/4.8.0/opencv.js" onload="onOpenCvReady();" type="text/javascript"></script>
+    <script src="script.js"></script>
+</body>
+</html>
